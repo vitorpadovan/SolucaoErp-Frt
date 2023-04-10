@@ -13,7 +13,7 @@ function ListCategoria(props) {
   );
   return (
     <div className="text-center">
-      <h1>Listar categoria</h1>
+      <h1>Listagem de Categoria</h1>
       <LstCategoriaComp lista={categorias} />
     </div>
   );
