@@ -1,15 +1,11 @@
 .fullBody{
-    background-color: red;
-    display: flex;
-    
+    display: flex;    
 }
 
 .menu{
-    background-color: cyan;
-    width: 30%;
+    width: 20%;
 }
 
 .content{
-    background-color: green;
     flex: 1;
 }

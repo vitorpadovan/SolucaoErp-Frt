@@ -1,4 +1,5 @@
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import Menu from "./component/Menu/Menu";
 import CadCategoria from "./pages/Categoria/Cadastro/CadCategoria";
 import ListCategoria from "./pages/Categoria/Listagem/ListCategoria";
@@ -9,32 +10,52 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 function App() {
   const menus = [
     {
-      cod: 1,
+      id: 1,
+      grupo: "Categoria",
+      nome: "Cadastro",
+      widget: <CadCategoria />,
+      link: "cadastro-categoria/:id",
+      exibeMenu: false,
+    },
+    {
+      id: 2,
       grupo: "Categoria",
       nome: "Cadastro",
       widget: <CadCategoria />,
       link: "cadastro-categoria",
+      exibeMenu: true,
     },
     {
-      cod: 1,
+      id: 3,
       grupo: "Categoria",
       nome: "Listar",
       widget: <ListCategoria />,
       link: "listagem-categoria",
+      exibeMenu: true,
     },
     {
-      cod: 1,
+      id: 4,
       grupo: "Produto",
       nome: "Cadastro",
       widget: <CadProduto />,
       link: "cadastro-produto",
+      exibeMenu: true,
     },
     {
-      cod: 1,
+      id: 5,
+      grupo: "Produto",
+      nome: "Cadastro",
+      widget: <CadProduto />,
+      link: "cadastro-produto/:id",
+      exibeMenu: false,
+    },
+    {
+      id: 6,
       grupo: "Produto",
       nome: "Listar",
       widget: <ListProduto />,
       link: "listagem-produto",
+      exibeMenu: true,
     },
   ];
   return (
@@ -45,20 +66,16 @@ function App() {
         </div>
         <div className="content">
           <Routes>
-            {menus.map((e, i) => (
-              <Route
-                key={i}
-                path={e.link}
-                exact
-                element={
-                  <>
-                    {/* TODO Colocar bread */}
-                    {/* <>Teste</> */}
-                    {e.widget}
-                  </>
-                }
-              />
-            ))}
+            {menus.map((e) => {
+              return (
+                <Route
+                  key={e.id}
+                  path={e.link}
+                  exact
+                  element={<>{e.widget}</>}
+                />
+              );
+            })}
           </Routes>
         </div>
       </Router>

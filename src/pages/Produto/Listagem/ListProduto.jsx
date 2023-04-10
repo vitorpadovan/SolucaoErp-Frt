@@ -10,10 +10,10 @@ function ListProduto(props) {
     });
   }, [props]);
   return (
-    <>
+    <div className="text-center">
       <h1>Listagem de Produto</h1>
       <LstProduto produtos={produtos} />
-    </>
+    </div>
   );
 }
 
