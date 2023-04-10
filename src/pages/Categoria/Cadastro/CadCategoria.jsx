@@ -18,6 +18,9 @@ function CadCategoria(props) {
         setIdSelecionado(id);
         setCategoria(response.data.nome);
       });
+    } else {
+      setIdSelecionado(null);
+      setCategoria("");
     }
   }, [id]);
   const atualizarCategoria = (categoria, id) => {

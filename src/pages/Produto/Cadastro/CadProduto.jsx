@@ -25,6 +25,10 @@ function CadProduto(props) {
         setProduto(response.data.nome);
         setCategoriaSelecionada(response.data.categoria.id);
       });
+    } else {
+      setIdSelecionad(null);
+      setCategoriaSelecionada(-1);
+      setProduto("");
     }
   }, [id]);
 
