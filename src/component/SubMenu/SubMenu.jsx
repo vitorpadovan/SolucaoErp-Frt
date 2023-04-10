@@ -28,10 +28,7 @@ function SubMenu(props) {
         data-bs-target={"#" + grupo}
         aria-expanded={acao.aria}
         onClick={() => {
-          var resposta = acao.acao == aberto.acao;
-          console.log(acao);
-          console.log(resposta);
-          acao.acao == aberto.acao ? setAcao(fechado) : setAcao(aberto);
+          acao.acao === aberto.acao ? setAcao(fechado) : setAcao(aberto);
         }}
       >
         {grupo}
