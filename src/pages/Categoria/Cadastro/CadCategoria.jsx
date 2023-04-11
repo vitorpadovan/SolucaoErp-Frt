@@ -3,13 +3,15 @@ import categoriaService from "../../../services/categoria.service";
 import StatusCard from "../../../component/StatusCard/StatusCard";
 import { Button } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function CadCategoria(props) {
   const [categoria, setCategoria] = useState(null);
   const [errors, setErrors] = useState([]);
   const [sucesso, setSucesso] = useState([]);
   const [idSelecionado, setIdSelecionado] = useState(null);
+  const navigate = useNavigate();
+
   let { id } = useParams();
 
   useEffect(() => {
@@ -33,6 +35,7 @@ function CadCategoria(props) {
           ...sucesso,
           { message: "Sucesso ao atualizar a categoria" },
         ]);
+        navigate("/listagem-categoria", { replace: true });
       })
       .catch((response) => {});
   };
