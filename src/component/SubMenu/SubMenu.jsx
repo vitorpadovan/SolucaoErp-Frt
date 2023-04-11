@@ -19,10 +19,10 @@ function SubMenu(props) {
 
   useEffect(() => {
     setAcao({
-      acao: "aberto",
-      botao: "btn btn-toggle align-items-center rounded",
-      embaixo: "collapse show",
-      aria: true,
+      acao: "fehcadoo",
+      botao: "btn btn-toggle align-items-center rounded collapsed",
+      embaixo: "collapse",
+      aria: false,
     });
   }, [props]);
   return (
