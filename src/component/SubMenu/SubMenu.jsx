@@ -18,7 +18,12 @@ function SubMenu(props) {
   const [acao, setAcao] = useState(aberto);
 
   useEffect(() => {
-    setAcao(aberto);
+    setAcao({
+      acao: "aberto",
+      botao: "btn btn-toggle align-items-center rounded",
+      embaixo: "collapse show",
+      aria: true,
+    });
   }, [props]);
   return (
     <li key={grupo} className="mb-3">

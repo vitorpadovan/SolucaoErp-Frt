@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import SubMenu from "../SubMenu/SubMenu";
 
 function Menu(props) {
