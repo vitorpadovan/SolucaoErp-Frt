@@ -5,6 +5,7 @@ import StatusCard from "../../../component/StatusCard/StatusCard";
 import { Button } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function CadProduto(props) {
   const [produto, setProduto] = useState(null);
@@ -13,6 +14,7 @@ function CadProduto(props) {
   const [errors, setErrors] = useState([]);
   const [sucesso, setSucesso] = useState([]);
   const [idSelecionado, setIdSelecionad] = useState(null);
+  const navigate = useNavigate();
   let { id } = useParams();
 
   useEffect(() => {
@@ -61,6 +63,7 @@ function CadProduto(props) {
         setSucesso([...sucesso, { message: "Sucesso ao atualizar o item" }]);
         setIdSelecionad(null);
         setProduto(null);
+        navigate("/listagem-produto", { replace: true });
         limpaStatus();
       })
       .catch((e) => {
@@ -112,6 +115,7 @@ function CadProduto(props) {
             onClick={() => {
               if (categoriaSelecionada != null) {
                 var teste = { Nome: produto, Categoria: categoriaSelecionada };
+                console.log(categoriaSelecionada);
                 idSelecionado
                   ? atualizarProduto(teste, idSelecionado)
                   : salvarProduto(teste);
